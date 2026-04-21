@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:franchise-test
+    driverClassName: org.h2.Driver
+    username: test
+    password:
+  jpa:
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create

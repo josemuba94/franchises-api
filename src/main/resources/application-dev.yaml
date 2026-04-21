@@ -1,0 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:franchise
+    driverClassName: org.h2.Driver
+    username: josemuba
+    password:
+  jpa:
+    defer-datasource-initialization: true
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+

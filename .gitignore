@@ -1,0 +1,21 @@
+HELP.md
+target/
+.mvn
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+.settings
+*.iws
+*.iml
+*.ipr
+
+### AI Agents ###
+.claude
+.codemie
+CLAUDE.md
+
+### Terraform ###
+terraform-manifests/.terraform
+terraform-manifests/terraform.tfstate.backup
