@@ -5,14 +5,13 @@ spring:
     username: josemuba
     password:
   jpa:
-    defer-datasource-initialization: true
     show-sql: true
     properties:
       hibernate:
         format_sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
+      show-sql: true
   h2:
     console:
       enabled: true
-

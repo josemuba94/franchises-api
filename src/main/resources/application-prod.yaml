@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://3.145.49.123:5432/postgres
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, metrics

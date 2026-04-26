@@ -1,17 +1,10 @@
 spring:
   datasource:
-    url: ${POSTGRES_URL}
+    url: ${POSTGRES_URL} #jdbc:postgresql://franchises-db-instance.c1k66ose0asf.us-east-2.rds.amazonaws.com:5432/postgres
     driver-class-name: org.postgresql.Driver
     username: postgres
-    password: ${POSTGRES_PASSWORD}
+    password: ${POSTGRES_PASSWORD} #t77g5Km+
   jpa:
-    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create-drop
       show-sql: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: health, info, metrics
