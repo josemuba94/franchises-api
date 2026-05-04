@@ -27,6 +27,7 @@ FROM public.ecr.aws/amazonlinux/amazonlinux:2023
 RUN dnf --setopt=install_weak_deps=False install -q -y \
     java-17-amazon-corretto-headless \
     shadow-utils \
+    curl \
     && \
     dnf clean all
 

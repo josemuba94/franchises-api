@@ -1,0 +1,49 @@
+name: franchises
+networks:
+  default:
+    name: franchises_default
+services:
+  franchises:
+    depends_on:
+      franchises-db:
+        condition: service_healthy
+        restart: true
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+      - SERVER_TOMCAT_ACCESSLOG_ENABLED=true
+      - POSTGRES_URL=jdbc:postgresql://franchises-db:5432/franchises
+      - POSTGRES_USERNAME=franchises_user
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    healthcheck:
+      interval: 10s
+      retries: 3
+      start_period: 15s
+      test:
+        - CMD-SHELL
+        - curl -f http://localhost:8080/actuator/health || exit 1
+      timeout: 10s
+    ports:
+      - "8080:8080"
+    read_only: true
+    restart: always
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    image: josemuba94/franchises-api:1.0.0
+  franchises-db:
+    environment:
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=franchises
+      - POSTGRES_USER=franchises_user
+    healthcheck:
+      interval: 10s
+      retries: 30
+      test:
+        - CMD-SHELL
+        - pg_isready -d franchises -U franchises_user
+      timeout: 5s
+    image: postgres:16.1
+    restart: always
+    security_opt:
+      - no-new-privileges:true
