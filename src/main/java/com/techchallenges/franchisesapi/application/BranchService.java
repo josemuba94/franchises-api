@@ -1,6 +1,7 @@
 package com.techchallenges.franchisesapi.application;
 
 import com.techchallenges.franchisesapi.domain.Branch;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public interface BranchService {
 
     Branch deleteProduct(String branchName, String productName);
 
+    @Cacheable("products-stock")
     List<Branch> getTopStockBranchesByFranchise(String franchiseName);
 
 }
