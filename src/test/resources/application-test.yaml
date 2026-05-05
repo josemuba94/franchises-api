@@ -5,6 +5,5 @@ spring:
     username: test
     password:
   jpa:
-    defer-datasource-initialization: true
     hibernate:
       ddl-auto: create
