@@ -30,7 +30,7 @@ services:
       - no-new-privileges:true
     tmpfs:
       - /tmp:rw,noexec,nosuid
-    image: josemuba94/franchises-api:1.0.0
+    image: josemuba94/franchises-api:1.0.2
   franchises-db:
     environment:
       - POSTGRES_PASSWORD=${DB_PASSWORD}
