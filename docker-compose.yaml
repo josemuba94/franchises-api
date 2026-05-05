@@ -1,9 +1,11 @@
-name: franchises
+# Before getting this cluster up, it is mandatory to create the env variable which DB depends on
+# > export DB_PASSWORD=123456
+name: franchises-app
 networks:
   default:
     name: franchises_default
 services:
-  franchises:
+  franchises-api:
     depends_on:
       franchises-db:
         condition: service_healthy

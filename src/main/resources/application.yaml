@@ -2,7 +2,7 @@ spring:
   application:
     name: franchises-api
   profiles:
-    active: prod
+    active: dev
   jpa:
     defer-datasource-initialization: true
   sql:
